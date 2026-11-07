@@ -1,4 +1,4 @@
-// Movimento da página: entrada na rolagem, pontos do radar e linha de "Como funciona".
+// Movimento da página: entrada na rolagem e linha de "Como funciona".
 
 function revealOnScroll() {
   const blocks = [...document.querySelectorAll('.rv')];
@@ -23,20 +23,6 @@ function revealOnScroll() {
     if (target?.contains(block)) continue;
     block.classList.add('rv-espera');
     observer.observe(block);
-  }
-}
-
-function radarDots() {
-  const radar = document.getElementById('radar');
-  if (!radar || radar.childElementCount) return;
-  for (let i = 0; i < 12; i += 1) {
-    const angle = i * 2.4;
-    const radius = 16 + ((i * 37) % 32);
-    const dot = document.createElement('b');
-    dot.style.left = `${50 + radius * Math.cos(angle)}%`;
-    dot.style.top = `${50 + radius * Math.sin(angle)}%`;
-    dot.style.animationDelay = `${-i * 0.37}s`;
-    radar.append(dot);
   }
 }
 
@@ -70,7 +56,6 @@ function stepsLine(reducedMotion) {
 }
 
 export function initMotion({ reducedMotion = false } = {}) {
-  radarDots();
   if (!reducedMotion) revealOnScroll();
   stepsLine(reducedMotion);
 }

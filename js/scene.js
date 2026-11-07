@@ -1,5 +1,5 @@
 // Cena 3D da primeira tela: corredor de racks com luzes, pulsos nas faixas e reação ao mouse.
-import * as THREE from '../vendor/three.module.min.js?v=5';
+import * as THREE from '../vendor/three.module.min.js?v=8';
 
 function hasWebGL() {
   try {

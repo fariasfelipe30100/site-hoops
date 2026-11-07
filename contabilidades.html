@@ -24,8 +24,8 @@
   <meta name="theme-color" content="#010E22">
   <link rel="icon" href="img/icone.png" type="image/png">
   <link rel="preload" href="fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=10">
-  <link rel="modulepreload" href="js/main.js?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=13">
+  <link rel="modulepreload" href="js/main.js?v=8">
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -82,102 +82,170 @@
     </section>
 
     <section class="secao claro" id="riscos">
-      <p class="mono rv">Riscos do setor</p>
-      <h2 class="tit rv">O dado fiscal é o que o escritório tem de mais valioso.</h2>
-      <div class="riscos">
-        <article class="card risco r1 rv">
-          <div class="risco__viz" aria-hidden="true"><div class="arquivos"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-          <span class="mono risco__tag">Risco</span>
-          <h3>Ransomware sequestra tudo</h3>
-          <p>Quando um ransomware entra na rede, ele sequestra tudo, inclusive a nuvem gratuita onde ficam as cópias.</p>
-        </article>
-        <article class="card risco r2 rv">
-          <div class="risco__viz" aria-hidden="true"><div class="relogio"><i></i><b>Prazo</b></div></div>
-          <span class="mono risco__tag">Risco</span>
-          <h3>Prazos do e-Social</h3>
-          <p>Fechamento de folha e entregas com prazo não podem parar porque o servidor caiu.</p>
-        </article>
-        <article class="card risco r3 rv">
-          <div class="risco__viz" aria-hidden="true"><div class="vazamento"><span class="vazamento__pasta"></span><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-          <span class="mono risco__tag">Risco</span>
-          <h3>Vazamento e LGPD</h3>
-          <p>O vazamento de informações de clientes quebra o seu escritório e a confiança de quem contratou você.</p>
-        </article>
-        <article class="card risco r4 rv">
-          <div class="risco__viz" aria-hidden="true"><div class="clique"><div class="clique__mail"><b>Boleto em anexo</b><span></span><span></span><em>Abrir</em></div><svg class="clique__cursor" viewBox="0 0 24 24" focusable="false"><path d="M5 3l14 8-6 1.5L10 19 5 3Z"/></svg></div></div>
-          <span class="mono risco__tag">Risco</span>
-          <h3>Um clique, um boleto falso</h3>
-          <p>Um e-mail falso aberto pela equipe pode zerar o caixa. Criminosos monitoram e-mails desprotegidos para interceptar pagamentos.</p>
-        </article>
+      <div class="moldura">
+        <div class="cab">
+          <p class="mono cab__idx rv"><b>01</b> — Riscos do setor</p>
+          <h2 class="tit rv">O dado fiscal é o que o escritório tem de mais valioso.</h2>
+        </div>
+        <div class="riscos">
+          <article class="card risco r1 rv">
+            <div class="risco__viz" aria-hidden="true"><div class="arquivos"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="mono risco__tag">Risco</span>
+            <h3>Ransomware sequestra tudo</h3>
+            <p>Quando um ransomware entra na rede, ele sequestra tudo, inclusive a nuvem gratuita onde ficam as cópias.</p>
+          </article>
+          <article class="card risco r2 rv">
+            <div class="risco__viz" aria-hidden="true"><div class="relogio"><i></i><b>Prazo</b></div></div>
+            <span class="mono risco__tag">Risco</span>
+            <h3>Prazos do e-Social</h3>
+            <p>Fechamento de folha e entregas com prazo não podem parar porque o servidor caiu.</p>
+          </article>
+          <article class="card risco r3 rv">
+            <div class="risco__viz" aria-hidden="true"><div class="vazamento"><span class="vazamento__pasta"></span><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="mono risco__tag">Risco</span>
+            <h3>Vazamento e LGPD</h3>
+            <p>O vazamento de informações de clientes quebra o seu escritório e a confiança de quem contratou você.</p>
+          </article>
+          <article class="card risco r4 rv">
+            <div class="risco__viz" aria-hidden="true"><div class="clique"><div class="clique__mail"><b>Boleto em anexo</b><span></span><span></span><em>Abrir</em></div><svg class="clique__cursor" viewBox="0 0 24 24" focusable="false"><path d="M5 3l14 8-6 1.5L10 19 5 3Z"/></svg></div></div>
+            <span class="mono risco__tag">Risco</span>
+            <h3>Um clique, um boleto falso</h3>
+            <p>Um e-mail falso aberto pela equipe pode zerar o caixa. Criminosos monitoram e-mails desprotegidos para interceptar pagamentos.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="secao" id="solucao">
-      <p class="mono rv">O que a Hoops faz</p>
-      <h2 class="tit rv">Os dados do escritório protegidos antes do problema.</h2>
-      <div class="solucao">
-        <div class="painel rv" aria-hidden="true">
-          <div class="painel__topo"><span class="painel__vivo"></span>NOC Hoops · escritório<span class="painel__selo">Simulação ilustrativa</span></div>
-          <div class="painel__radar"><div class="radar" id="radar"></div></div>
-          <ul class="status">
-            <li><span>Servidor</span><b>protegido</b></li>
-            <li><span>Backup com Acronis</span><b>concluído</b></li>
-            <li><span>E-mails</span><b>filtrados</b></li>
-            <li><span>Acessos</span><b>monitorados</b></li>
-          </ul>
+      <div class="moldura">
+        <div class="cab">
+          <p class="mono cab__idx rv"><b>02</b> — O que a Hoops faz</p>
+          <h2 class="tit rv">Os dados do escritório protegidos antes do problema.</h2>
         </div>
-        <ul class="faz">
-          <li class="rv"><span class="faz__icone"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V5.5M4.5 12v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V12"/></svg></span><div><h3>Backup e recuperação com Acronis</h3><p>A Hoops faz a gestão do seu backup corporativo com Acronis, para que os dados possam ser recuperados se o pior acontecer.</p></div></li>
-          <li class="rv"><span class="faz__icone"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5 20 5.5v6.2c0 4.9-3.4 8.1-8 9.8-4.6-1.7-8-4.9-8-9.8V5.5l8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><h3>Segurança e proteção contra phishing</h3><p>Barreiras que filtram ameaças antes que elas cheguem à caixa de entrada, com firewalls, monitoramento e auditorias.</p></div></li>
-          <li class="rv"><span class="faz__icone"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 19 6"/></svg></span><div><h3>NOC 24/7</h3><p>Sua rede acompanhada o tempo todo, para agir quando algo foge do normal, antes de virar parada.</p></div></li>
-          <li class="rv"><span class="faz__icone"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="6" rx="1.5"/><rect x="3.5" y="14.5" width="17" height="6" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01M12 9.5v5"/></svg></span><div><h3>Gestão de infraestrutura e terceirização de TI</h3><p>Entregue a gestão da sua infraestrutura de tecnologia a especialistas, do suporte técnico à manutenção.</p></div></li>
-        </ul>
+        <div class="s3d" data-servicos3d>
+          <div class="palco s3d__palco">
+            <span class="palco__marca" aria-hidden="true" data-s3d-num>01</span>
+            <canvas aria-hidden="true"></canvas>
+            <p class="palco__hud" aria-hidden="true"><span data-s3d-num>01</span> / 04</p>
+            <div class="palco__noc" aria-hidden="true">
+              <p class="painel__topo"><span class="painel__vivo"></span>NOC Hoops · escritório<span class="painel__selo">Simulação ilustrativa</span></p>
+              <ul class="status"><li><span>Servidor</span><b>protegido</b></li><li><span>Backup com Acronis</span><b>concluído</b></li><li><span>E-mails</span><b>filtrados</b></li><li><span>Acessos</span><b>monitorados</b></li></ul>
+            </div>
+            <p class="palco__selo" aria-hidden="true">Ilustração 3D</p>
+          </div>
+          <div class="s3d__lista">
+            <article class="s3d__item" data-s3d="discos">
+              <span class="s3d__n" aria-hidden="true">01</span>
+              <h3>Backup e recuperação com Acronis</h3>
+              <p>A Hoops faz a gestão do seu backup corporativo com Acronis, para que os dados possam ser recuperados se o pior acontecer.</p>
+            </article>
+            <article class="s3d__item" data-s3d="escudo">
+              <span class="s3d__n" aria-hidden="true">02</span>
+              <h3>Segurança e proteção contra phishing</h3>
+              <p>Barreiras que filtram ameaças antes que elas cheguem à caixa de entrada, com firewalls, monitoramento e auditorias.</p>
+            </article>
+            <article class="s3d__item" data-s3d="globo">
+              <span class="s3d__n" aria-hidden="true">03</span>
+              <h3>NOC 24/7</h3>
+              <p>Sua rede acompanhada o tempo todo, para agir quando algo foge do normal, antes de virar parada.</p>
+            </article>
+            <article class="s3d__item" data-s3d="rede">
+              <span class="s3d__n" aria-hidden="true">04</span>
+              <h3>Gestão de infraestrutura e terceirização de TI</h3>
+              <p>Entregue a gestão da sua infraestrutura de tecnologia a especialistas, do suporte técnico à manutenção.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="secao claro claro--branco" id="como-funciona">
-      <p class="mono rv">Como funciona</p>
-      <h2 class="tit rv">Do primeiro olhar ao monitoramento.</h2>
-      <div class="etapas rv">
-        <span class="etapas__linha" aria-hidden="true"></span>
-        <ol>
-          <li><h3>Diagnóstico</h3><p>A Hoops avalia a sua rede e mostra onde estão os riscos.</p></li>
-          <li><h3>Plano</h3><p>Você recebe o que precisa ser feito, com a proposta para a sua empresa.</p></li>
-          <li><h3>Implantação</h3><p>A Hoops coloca o plano em prática e conecta sua rede ao monitoramento.</p></li>
-          <li><h3>Monitoramento</h3><p>Sua rede passa a ser acompanhada de dia, de noite e no fim de semana.</p></li>
-        </ol>
+      <div class="moldura">
+        <div class="cab">
+          <p class="mono cab__idx rv"><b>03</b> — Como funciona</p>
+          <h2 class="tit rv">Do primeiro olhar ao monitoramento.</h2>
+        </div>
+        <div class="passos3d" data-passos3d>
+          <div class="palco passos3d__palco">
+            <span class="palco__marca" aria-hidden="true" data-passo-num>01</span>
+            <canvas aria-hidden="true"></canvas>
+            <p class="palco__hud" aria-hidden="true">Etapa <span data-passo-num>01</span> / 04 <em data-passo-nome>Diagnóstico</em></p>
+            <p class="palco__selo" aria-hidden="true">Ilustração 3D</p>
+          </div>
+          <div class="passos-wrap" data-linha-passos>
+            <span class="passos__linha" aria-hidden="true"></span>
+            <ol class="passos">
+              <li>
+                <div>
+                  <span class="passos__num" aria-hidden="true">01</span>
+                  <h3>Diagnóstico</h3>
+                  <p>A Hoops avalia a sua rede e mostra onde estão os riscos.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="passos__num" aria-hidden="true">02</span>
+                  <h3>Plano</h3>
+                  <p>Você recebe o que precisa ser feito, com a proposta para a sua empresa.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="passos__num" aria-hidden="true">03</span>
+                  <h3>Implantação</h3>
+                  <p>A Hoops coloca o plano em prática e conecta sua rede ao monitoramento.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="passos__num" aria-hidden="true">04</span>
+                  <h3>Monitoramento</h3>
+                  <p>Sua rede passa a ser acompanhada de dia, de noite e no fim de semana.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="secao" id="outros">
-      <p class="mono rv">Outros segmentos</p>
-      <h2 class="tit rv">Cada setor para de um jeito diferente.</h2>
-      <div class="setores setores--dois rv">
-        <a class="setor" href="varejo.html">
-          <img src="img/varejo.jpg" alt="Técnico da Hoops em um rack dentro de um supermercado" width="1080" height="680" loading="lazy" decoding="async">
-          <div class="setor__texto">
-            <span class="mono">Varejo</span>
-            <h3>O seu caixa abre ao sábado. E o seu suporte de TI?</h3>
-            <p class="setor__temas">PDV, notas travadas, fila parada</p>
-            <span class="setor__link">Ver TI para varejo <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
-        <a class="setor" href="industria.html">
-          <img src="img/industria.jpg" alt="Chão de fábrica durante visita técnica da Hoops" width="758" height="878" loading="lazy" decoding="async">
-          <div class="setor__texto">
-            <span class="mono">Indústria</span>
-            <h3>TI industrial não se resolve apenas diante de uma tela.</h3>
-            <p class="setor__temas">Chão de fábrica, pontos críticos, visita técnica</p>
-            <span class="setor__link">Ver TI para indústria <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
+      <div class="moldura">
+        <div class="cab">
+          <p class="mono cab__idx rv"><b>04</b> — Outros segmentos</p>
+          <h2 class="tit rv">Cada setor para de um jeito diferente.</h2>
+        </div>
+        <div class="setores setores--dois rv">
+          <a class="setor" href="varejo.html">
+            <img src="img/varejo.jpg" alt="Técnico da Hoops em um rack dentro de um supermercado" width="1080" height="680" loading="lazy" decoding="async">
+            <div class="setor__texto">
+              <span class="mono">Varejo</span>
+              <h3>O seu caixa abre ao sábado. E o seu suporte de TI?</h3>
+              <p class="setor__temas">PDV, notas travadas, fila parada</p>
+              <span class="setor__link">Ver TI para varejo <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a class="setor" href="industria.html">
+            <img src="img/industria.jpg" alt="Chão de fábrica durante visita técnica da Hoops" width="758" height="878" loading="lazy" decoding="async">
+            <div class="setor__texto">
+              <span class="mono">Indústria</span>
+              <h3>TI industrial não se resolve apenas diante de uma tela.</h3>
+              <p class="setor__temas">Chão de fábrica, pontos críticos, visita técnica</p>
+              <span class="setor__link">Ver TI para indústria <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
     <section class="fim secao" id="diagnostico">
-      <p class="mono rv">Diagnóstico gratuito</p>
-      <h2 class="rv">Agende o diagnóstico gratuito <span class="grad">do seu escritório.</span></h2>
-      <a class="btn rv" data-wa="contabilidades" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20de%20TI%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener">Agendar diagnóstico gratuito <span class="btn__seta" aria-hidden="true">→</span></a>
+      <div class="moldura">
+        <div class="cab cab--centro">
+          <p class="mono cab__idx rv"><b>05</b> — Diagnóstico gratuito</p>
+          <h2 class="tit rv">Agende o diagnóstico gratuito <span class="grad">do seu escritório.</span></h2>
+        </div>
+        <a class="btn rv" data-wa="contabilidades" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20de%20TI%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener">Agendar diagnóstico gratuito <span class="btn__seta" aria-hidden="true">→</span></a>
+      </div>
     </section>
   </main>
 
@@ -221,6 +289,6 @@
   <a class="wa-float" data-wa="contabilidades" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20de%20TI%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" aria-label="Falar com a Hoops no WhatsApp">
     <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <script type="module" src="js/main.js?v=5"></script>
+  <script type="module" src="js/main.js?v=8"></script>
 </body>
 </html>
