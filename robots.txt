@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fariasfelipe30100.github.io/site-hoops/sitemap.xml
