@@ -1,8 +1,8 @@
 // Como funciona: caminho 3D com as quatro etapas (Diagnóstico, Plano, Implantação, Monitoramento).
 // Uma luz percorre o caminho conforme a leitura desce pelas etapas; cada base acende ao ser alcançada.
 // Ilustração: não representa o estado real de nenhuma rede.
-import * as THREE from '../vendor/three.module.min.js?v=8';
-import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=8';
+import * as THREE from '../vendor/three.module.min.js?v=9';
+import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=9';
 
 const CIANO = 0x35f2f9;
 const ACCENT = 0x00c4cc;

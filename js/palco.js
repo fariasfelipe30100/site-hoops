@@ -143,9 +143,13 @@ export function acompanharServicos(raiz, { compact = false } = {}) {
   const palco = raiz.querySelector('.palco');
   const titulos = itens.map((item) => item.querySelector('h3') ?? item);
   let pendente = false;
+  // A largura pode mudar depois do carregamento (tablet girado, janela redimensionada): o modo
+  // compacto é lido a cada cálculo, igual à regra de CSS que empilha o palco.
+  const telaEstreita = window.matchMedia('(max-width: 900px)');
   const calcular = () => {
     pendente = false;
     if (!vigia.perto) return;
+    const compact = telaEstreita.matches;
     const base = compact && palco ? palco.getBoundingClientRect().bottom : 0;
     const leitura = compact ? base + (window.innerHeight - base) * 0.45 : window.innerHeight * 0.5;
     let indice = compact ? itens.length - 1 : 0;
@@ -166,7 +170,7 @@ export function acompanharServicos(raiz, { compact = false } = {}) {
   const vigia = perto(raiz, pedir);
   window.addEventListener('scroll', pedir, { passive: true });
   window.addEventListener('resize', pedir);
-  if (compact && palco && itens.length) {
+  if (palco && itens.length) {
     // O palco fixo só se solta quando o fim da lista chega a ele. Sem ajuste, o título do último item
     // passaria por baixo do palco ainda fixo. --cauda encurta a área do palco fixo (a lista sobra para
     // fora dela, e a margem devolve o espaço), para ele se soltar quando esse título chega à sua base.

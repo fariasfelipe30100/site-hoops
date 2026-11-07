@@ -1,8 +1,8 @@
 // Serviços: palco 3D fixo ao lado da lista; o objeto muda conforme o serviço lido.
 // Globo (NOC), discos (backup), escudo (segurança), rede (infraestrutura) e nuvem (cloud), todos procedurais.
 // Cada item da lista diz o seu modelo em data-s3d; as páginas de segmento usam quatro, em outra ordem.
-import * as THREE from '../vendor/three.module.min.js?v=8';
-import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=8';
+import * as THREE from '../vendor/three.module.min.js?v=9';
+import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=9';
 
 const CIANO = 0x35f2f9;
 const ACCENT = 0x00c4cc;

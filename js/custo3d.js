@@ -1,8 +1,8 @@
 // O custo de parar: duas faixas 3D, uma em cada painel, desenhadas por um único canvas (um só contexto WebGL).
 // TI reativa: superfície vermelha irregular, com picos. TI proativa: superfície ciano estável.
 // Cada fileira é um instante anterior da mesma linha, recuando em profundidade. Ilustração, sem eixos nem valores.
-import * as THREE from '../vendor/three.module.min.js?v=8';
-import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=8';
+import * as THREE from '../vendor/three.module.min.js?v=9';
+import { criarRenderer, laco, liberar, vigiarContexto } from './palco.js?v=9';
 
 const VERMELHO = 0xff4d4f;
 const CIANO = 0x35f2f9;

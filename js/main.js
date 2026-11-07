@@ -1,8 +1,8 @@
-import { applyWhatsappLinks } from './whatsapp.js?v=8';
-import { WHATSAPP_NUMBER, MESSAGES } from './config.js?v=8';
-import { initCharts } from './charts.js?v=8';
-import { initMotion } from './motion.js?v=8';
-import { quandoPerto, acompanharServicos, acompanharPassos } from './palco.js?v=8';
+import { applyWhatsappLinks } from './whatsapp.js?v=9';
+import { WHATSAPP_NUMBER, MESSAGES } from './config.js?v=9';
+import { initCharts } from './charts.js?v=9';
+import { initMotion } from './motion.js?v=9';
+import { quandoPerto, acompanharServicos, acompanharPassos } from './palco.js?v=9';
 
 // Cada módulo falha sozinho, sem derrubar os outros. Aceita funções síncronas e promessas.
 function run(name, fn) {
@@ -53,7 +53,7 @@ run('graficos', () => initCharts(document, { reducedMotion }));
 const canvas = document.getElementById('cena');
 if (canvas) {
   const hero = canvas.closest('.hero');
-  import('./scene.js?v=8')
+  import('./scene.js?v=9')
     .then(({ initScene }) => initScene(canvas, { reducedMotion, compact }))
     .catch((error) => {
       hero?.classList.add('no-webgl');
@@ -74,7 +74,7 @@ run('servicos-3d', () => {
   const raiz = document.querySelector('[data-servicos3d]');
   if (!raiz) return;
   const estado = acompanharServicos(raiz, { compact });
-  palco3d('serviços', raiz, () => import('./servicos3d.js?v=8')
+  palco3d('serviços', raiz, () => import('./servicos3d.js?v=9')
     .then(({ initServicos3D }) => initServicos3D(raiz, { reducedMotion, compact, estado })));
 });
 
@@ -82,13 +82,13 @@ run('passos-3d', () => {
   const raiz = document.querySelector('[data-passos3d]');
   if (!raiz) return;
   const estado = acompanharPassos(raiz, { reducedMotion });
-  palco3d('como funciona', raiz, () => import('./passos3d.js?v=8')
+  palco3d('como funciona', raiz, () => import('./passos3d.js?v=9')
     .then(({ initPassos3D }) => initPassos3D(raiz, { reducedMotion, compact, estado })));
 });
 
 run('custo-3d', () => {
   const raiz = document.querySelector('[data-custo3d]');
   if (!raiz) return;
-  palco3d('custo', raiz, () => import('./custo3d.js?v=8')
+  palco3d('custo', raiz, () => import('./custo3d.js?v=9')
     .then(({ initCusto3D }) => initCusto3D(raiz, { reducedMotion, compact })));
 });
