@@ -1707,3 +1707,133 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 520px) and (max-height: 640px) {
   .hero--setor h1 { font-size: 36px; }
 }
+
+/* ==========================================================================
+   Seções claras
+   Alternam com as escuras (pedido do cliente: "tem que ter parte branca").
+   .claro = fundo #F5F8FC; .claro--branco = fundo branco. Os cartões e painéis
+   escuros continuam escuros dentro delas: as variáveis voltam ao tema escuro.
+   Contraste medido: --text 16,2:1, --muted 6,5:1, --accent-ink 4,8:1 sobre #F5F8FC.
+   ========================================================================== */
+
+.claro {
+  --text: #0B1B33;
+  --muted: #4A5B75;
+  --line: rgba(2, 26, 58, 0.12);
+  --deep: #F5F8FC;
+  --accent-ink: #007A82;
+  position: relative;
+  background: #F5F8FC;
+  color: var(--text);
+}
+.claro--branco { --deep: #FFFFFF; background: #FFFFFF; }
+.claro .mono { color: var(--accent-ink); }
+.claro .tit { color: var(--text); }
+.claro .grad {
+  color: transparent;
+  background: linear-gradient(95deg, #00858D, #0060BF);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* O cabeçalho passa sobre fundo branco: pílula mais opaca para o menu continuar legível */
+.site-header__inner { background: rgba(2, 20, 46, 0.84); }
+
+/* Cartões, painéis e listas escuros sobre fundo claro */
+.claro .card,
+.claro .faz li,
+.claro .painel {
+  --text: #F2F6FB;
+  --muted: #A9BBD3;
+  --line: rgba(160, 215, 235, 0.16);
+  --deep: #010E22;
+  color: var(--text);
+  box-shadow: 0 30px 70px -34px rgba(2, 26, 58, 0.55);
+}
+.claro .card,
+.claro .faz li { border-color: transparent; }
+.claro .painel { background: linear-gradient(160deg, #07305F, #031D40); }
+.claro .card .mono { color: var(--accent); }
+.claro .risco__tag { color: #FF8A8B; }
+.claro .card:hover,
+.claro .faz li:hover { border-color: rgba(0, 163, 171, 0.6); }
+
+/* Segmentos: fotos com sombra */
+.claro .setor { box-shadow: 0 30px 70px -32px rgba(2, 26, 58, 0.55); border-color: transparent; }
+.claro .setor__texto,
+.claro .setor h3 { color: #F2F6FB; }
+.claro .setor .mono { color: var(--accent); }
+.claro .setor__temas { color: #C9D6E6; }
+
+/* Como funciona da principal: etapas em cartões brancos */
+.claro .passos__num {
+  background: linear-gradient(180deg, #00A3AB, rgba(0, 163, 171, 0.12));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.claro .passos li > div {
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #FFFFFF;
+  box-shadow: 0 18px 50px -30px rgba(2, 26, 58, 0.35);
+}
+.claro .passos li::before { border-color: #00A3AB; box-shadow: 0 0 0 6px var(--deep), 0 0 14px 1px rgba(0, 163, 171, 0.45); }
+.claro .passos__linha::after { box-shadow: none; background: linear-gradient(180deg, #00A3AB, #0067C7); }
+
+/* Como funciona das páginas de segmento: linha horizontal sobre fundo claro */
+.claro .etapas li::before { border-color: #00A3AB; box-shadow: 0 0 0 6px var(--deep), 0 0 14px 1px rgba(0, 163, 171, 0.45); }
+.claro .etapas__linha::after { box-shadow: none; background: linear-gradient(90deg, #00A3AB, #0067C7); }
+.claro .etapas li {
+  padding: 52px 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #FFFFFF;
+  box-shadow: 0 18px 50px -30px rgba(2, 26, 58, 0.35);
+}
+.claro .etapas li::before { top: 18px; left: 24px; }
+.claro .etapas__linha { top: 26px; }
+.claro--branco .etapas li { background: #F5F8FC; }
+
+/* Perguntas */
+.claro .faq details { background: #FFFFFF; border-color: var(--line); box-shadow: 0 14px 40px -28px rgba(2, 26, 58, 0.35); }
+.claro .faq details[open] { background: #FFFFFF; border-color: #00A3AB; }
+.claro .faq summary { color: var(--text); }
+
+/* Por que a Hoops (principal) */
+.porque { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.porque__lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
+.porque__item {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #FFFFFF;
+  box-shadow: 0 16px 44px -30px rgba(2, 26, 58, 0.4);
+}
+.porque__item svg { width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: rgba(0, 196, 204, 0.12); stroke: var(--accent-ink); }
+.porque__item h3 { margin-top: 14px; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.porque__item p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.colagem { position: relative; aspect-ratio: 1 / 0.95; }
+.colagem img { position: absolute; object-fit: cover; border-radius: 26px; box-shadow: 0 34px 80px -34px rgba(2, 26, 58, 0.6); }
+.colagem .f1 { inset: 0 22% 26% 0; width: 78%; height: 74%; }
+.colagem .f2 { right: 0; bottom: 0; width: 56%; height: 52%; border: 8px solid #FFFFFF; }
+.colagem .status {
+  position: absolute;
+  left: 6%;
+  bottom: 8%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #021A3A;
+  color: #F2F6FB;
+  font: 400 13px/1.5 var(--font-mono);
+  box-shadow: 0 24px 60px -24px rgba(2, 26, 58, 0.7);
+}
+.colagem .status b { display: block; font-weight: 400; font-size: 15px; }
+.colagem .status i { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #35F2F9; box-shadow: 0 0 12px #35F2F9; }
+.colagem .status small { color: #A9BBD3; font-size: 11px; }
+
+@media (max-width: 900px) {
+  .porque { grid-template-columns: 1fr; }
+  .porque__lista { grid-template-columns: 1fr; }
+  .colagem { aspect-ratio: 1 / 1.05; }
+}
