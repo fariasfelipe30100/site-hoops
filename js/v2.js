@@ -46,7 +46,7 @@
     }
     if (!reduzido && foto) {
       const c = foto.getBoundingClientRect();
-      if (c.bottom > 0 && c.top < h) foto.style.setProperty('--desloca', `${((c.top + c.height / 2 - h / 2) * -0.12).toFixed(1)}px`);
+      if (c.bottom > 0 && c.top < h) foto.style.setProperty('--desloca', `${Math.max(-40, Math.min(40, (c.top + c.height / 2 - h / 2) * -0.06)).toFixed(1)}px`);
     }
     if (!reduzido && cena && y < h) cena.style.transform = `translateY(${(y * 0.12).toFixed(1)}px)`;
 
@@ -72,6 +72,48 @@
         card.style.setProperty('--y', `${ev.clientY - r.top}px`);
       });
     });
+  }
+
+  // Perguntas: no computador, passar o mouse (ou focar/clicar) mostra a resposta no painel ao lado;
+  // no celular, o toque abre e fecha a resposta dentro do próprio cartão.
+  const faq = document.querySelector('[data-faq]');
+  if (faq) {
+    const itens = [...faq.querySelectorAll('.faq__item')];
+    const painel = faq.querySelector('[data-faq-painel]');
+    const largo = matchMedia('(min-width: 901px)');
+    const mouse = matchMedia('(hover: hover) and (pointer: fine)');
+    let atual = -1;
+    let espera;
+    const mostrar = (i) => {
+      if (i === atual) return;
+      atual = i;
+      itens.forEach((item, k) => {
+        item.classList.toggle('ativo', k === i);
+        item.querySelector('.faq__q').setAttribute('aria-expanded', String(k === i));
+      });
+      if (!largo.matches || i < 0) return;
+      const item = itens[i];
+      painel.classList.add('troca');
+      clearTimeout(espera);
+      espera = setTimeout(() => {
+        painel.querySelector('[data-faq-n]').textContent = item.querySelector('.faq__n').textContent;
+        painel.querySelector('[data-faq-q]').textContent = item.querySelector('.faq__texto').textContent;
+        painel.querySelector('[data-faq-r]').textContent = item.querySelector('.faq__resp p').textContent;
+        painel.classList.remove('troca');
+      }, reduzido ? 0 : 180);
+    };
+    itens.forEach((item, i) => {
+      const botao = item.querySelector('.faq__q');
+      item.addEventListener('mouseenter', () => { if (mouse.matches && largo.matches) mostrar(i); });
+      botao.addEventListener('focus', () => { if (largo.matches) mostrar(i); });
+      botao.addEventListener('click', () => {
+        if (largo.matches) mostrar(i);
+        else mostrar(atual === i ? -1 : i);
+      });
+    });
+    const ajustar = () => { const i = atual; atual = -1; mostrar(largo.matches ? Math.max(i, 0) : -1); };
+    largo.addEventListener('change', ajustar);
+    ajustar();
   }
 
   // Menu do celular fecha ao escolher um link.

@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#010E22">
   <link rel="icon" href="img/icone.png" type="image/png">
   <link rel="preload" href="fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/v2.css?v=6">
+  <link rel="stylesheet" href="css/v2.css?v=8">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -294,15 +294,37 @@
 
     <!-- 9. Perguntas -->
     <section class="claro claro--gelo perguntas" id="perguntas">
-      <div class="moldura perguntas__grade">
-        <div>
-          <p class="rotulo rv">Perguntas frequentes</p>
-          <h2 class="titulo rv">O que todo mundo <span class="destaque">pergunta antes.</span></h2>
+      <div class="moldura">
+        <div class="cab">
+          <div>
+            <p class="rotulo rv">Perguntas frequentes</p>
+            <h2 class="titulo rv">O que todo mundo <span class="destaque">pergunta antes.</span></h2>
+          </div>
+          <p class="cab__lead rv">Escolha uma pergunta para ver a resposta. Não achou a sua? A equipe responde no WhatsApp.</p>
         </div>
-        <div class="faq">
-          <details class="rv"><summary>Quanto custa?</summary><p>Depende do tamanho da sua rede e do que o diagnóstico encontrar. Por isso não há tabela: primeiro vem o diagnóstico gratuito, depois uma proposta feita para a sua empresa.</p></details>
-          <details class="rv"><summary>Preciso trocar meu fornecedor?</summary><p>Não necessariamente. O diagnóstico mostra o que está funcionando e o que precisa mudar. A decisão continua sendo sua.</p></details>
-          <details class="rv"><summary>O que acontece fora do horário?</summary><p>O monitoramento continua à noite e no fim de semana. Como cada alerta é tratado fica definido no plano da sua empresa.</p></details>
+        <div class="faq" data-faq>
+          <div class="faq__lista">
+            <div class="faq__item rv">
+              <h3><button class="faq__q" type="button" id="faq-q1" aria-expanded="false" aria-controls="faq-r1"><span class="faq__n">01</span><span class="faq__texto">Quanto custa?</span><span class="faq__mais" aria-hidden="true"></span></button></h3>
+              <div class="faq__resp" id="faq-r1" role="region" aria-labelledby="faq-q1"><div><p>Depende do tamanho da sua rede e do que o diagnóstico encontrar. Por isso não há tabela: primeiro vem o diagnóstico gratuito, depois uma proposta feita para a sua empresa.</p></div></div>
+            </div>
+            <div class="faq__item rv">
+              <h3><button class="faq__q" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-r2"><span class="faq__n">02</span><span class="faq__texto">Preciso trocar meu fornecedor?</span><span class="faq__mais" aria-hidden="true"></span></button></h3>
+              <div class="faq__resp" id="faq-r2" role="region" aria-labelledby="faq-q2"><div><p>Não necessariamente. O diagnóstico mostra o que está funcionando e o que precisa mudar. A decisão continua sendo sua.</p></div></div>
+            </div>
+            <div class="faq__item rv">
+              <h3><button class="faq__q" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-r3"><span class="faq__n">03</span><span class="faq__texto">O que acontece fora do horário?</span><span class="faq__mais" aria-hidden="true"></span></button></h3>
+              <div class="faq__resp" id="faq-r3" role="region" aria-labelledby="faq-q3"><div><p>O monitoramento continua à noite e no fim de semana. Como cada alerta é tratado fica definido no plano da sua empresa.</p></div></div>
+            </div>
+          </div>
+          <div class="faq__painel rv">
+            <div class="faq__painel-in" data-faq-painel aria-hidden="true">
+              <span class="faq__painel-n" data-faq-n>01</span>
+              <p class="faq__painel-q" data-faq-q>Quanto custa?</p>
+              <p class="faq__painel-r" data-faq-r>Depende do tamanho da sua rede e do que o diagnóstico encontrar. Por isso não há tabela: primeiro vem o diagnóstico gratuito, depois uma proposta feita para a sua empresa.</p>
+            </div>
+            <a class="btn btn--branco" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20de%20TI." target="_blank" rel="noopener">Tirar outra dúvida no WhatsApp <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -336,6 +358,6 @@
 
   <a class="wa-flutuante" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20de%20TI." target="_blank" rel="noopener" aria-label="Falar com a Hoops no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg></a>
 
-  <script src="js/v2.js?v=6" defer></script>
+  <script src="js/v2.js?v=8" defer></script>
 </body>
 </html>
