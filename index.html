@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#010E22">
   <link rel="icon" href="img/icone.png" type="image/png">
   <link rel="preload" href="fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/v2.css?v=4">
+  <link rel="stylesheet" href="css/v2.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -174,19 +174,62 @@
           <h2 class="titulo rv" id="custo-titulo">Você paga duas vezes: <span class="destaque">a hora técnica e o tempo parado.</span></h2>
         </div>
         <div class="duelo rv">
-          <div class="duelo__lado duelo__lado--reativa">
-            <p class="duelo__tag">TI reativa</p>
+          <article class="painel painel--reativa">
+            <header class="painel__cab">
+              <p class="painel__tag">TI reativa</p>
+              <span class="painel__status"><i></i>Fora do ar</span>
+            </header>
             <h3>Alguém liga quando já parou.</h3>
-            <svg class="grafico" viewBox="0 0 400 120" aria-hidden="true"><path class="grafico__linha" d="M0,70 L40,64 L60,98 L90,40 L120,82 L150,30 L175,100 L210,58 L240,90 L270,22 L300,86 L330,50 L360,104 L400,60"/></svg>
-            <ul><li>Paradas inesperadas</li><li>Suporte emergencial</li><li>Prejuízo recorrente</li></ul>
-          </div>
-          <div class="duelo__vs" aria-hidden="true">vs</div>
-          <div class="duelo__lado duelo__lado--proativa">
-            <p class="duelo__tag">TI proativa</p>
+            <p class="painel__sub">A falha só aparece quando a operação já parou.</p>
+            <figure class="painel__grafico" aria-hidden="true">
+              <figcaption>Disponibilidade da rede na semana</figcaption>
+              <svg viewBox="0 0 420 170">
+                <defs><linearGradient id="gReativa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5A5F" stop-opacity=".35"/><stop offset="1" stop-color="#FF5A5F" stop-opacity="0"/></linearGradient></defs>
+                <g class="grade-g"><line x1="0" y1="40" x2="420" y2="40"/><line x1="0" y1="80" x2="420" y2="80"/><line x1="0" y1="120" x2="420" y2="120"/></g>
+                <g class="zonas"><rect x="74" y="16" width="52" height="112"/><rect x="224" y="16" width="38" height="112"/><rect x="344" y="16" width="28" height="112"/></g>
+                <text class="zona-rotulo" x="100" y="30">parada</text>
+                <path class="area" d="M0,44 L62,42 L74,118 L126,118 L138,46 L212,44 L224,118 L262,118 L274,48 L332,46 L344,118 L372,118 L384,50 L420,48 L420,130 L0,130 Z" fill="url(#gReativa)"/>
+                <path class="linha" pathLength="1" d="M0,44 L62,42 L74,118 L126,118 L138,46 L212,44 L224,118 L262,118 L274,48 L332,46 L344,118 L372,118 L384,50 L420,48"/>
+                <g class="marcas"><circle cx="74" cy="118" r="5"/><circle cx="224" cy="118" r="5"/><circle cx="344" cy="118" r="5"/></g>
+                <g class="dias"><text x="30" y="160">Seg</text><text x="90" y="160">Ter</text><text x="150" y="160">Qua</text><text x="210" y="160">Qui</text><text x="270" y="160">Sex</text><text x="330" y="160">Sáb</text><text x="390" y="160">Dom</text></g>
+              </svg>
+            </figure>
+            <dl class="medidores">
+              <div><dt>Tempo parado</dt><dd><span class="barra" style="--n:4"></span><b>alto</b></dd></div>
+              <div><dt>Custo de emergência</dt><dd><span class="barra" style="--n:5"></span><b>alto</b></dd></div>
+              <div><dt>Previsibilidade</dt><dd><span class="barra" style="--n:1"></span><b>baixa</b></dd></div>
+            </dl>
+            <ul class="painel__itens"><li>Paradas inesperadas</li><li>Suporte emergencial</li><li>Prejuízo recorrente</li></ul>
+          </article>
+
+          <div class="duelo__vs" aria-hidden="true"><span>vs</span></div>
+
+          <article class="painel painel--proativa">
+            <span class="painel__selo">Com a Hoops</span>
+            <header class="painel__cab">
+              <p class="painel__tag">TI proativa</p>
+              <span class="painel__status"><i></i>Operando</span>
+            </header>
             <h3>Alguém olha antes de parar.</h3>
-            <svg class="grafico" viewBox="0 0 400 120" aria-hidden="true"><path class="grafico__linha" d="M0,64 C60,60 100,56 150,54 C210,52 260,48 320,44 C350,42 380,40 400,38"/></svg>
-            <ul><li>Monitoramento 24/7</li><li>Prevenção de falhas</li><li>Crescimento com estabilidade</li></ul>
-          </div>
+            <p class="painel__sub">O NOC trata o alerta antes de virar parada.</p>
+            <figure class="painel__grafico" aria-hidden="true">
+              <figcaption>Disponibilidade da rede na semana</figcaption>
+              <svg viewBox="0 0 420 170">
+                <defs><linearGradient id="gProativa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#35F2F9" stop-opacity=".32"/><stop offset="1" stop-color="#35F2F9" stop-opacity="0"/></linearGradient></defs>
+                <g class="grade-g"><line x1="0" y1="40" x2="420" y2="40"/><line x1="0" y1="80" x2="420" y2="80"/><line x1="0" y1="120" x2="420" y2="120"/></g>
+                <path class="area" d="M0,46 C40,45 90,45 130,44 C150,43 158,54 170,54 C182,54 190,44 214,42 C280,40 350,38 420,36 L420,130 L0,130 Z" fill="url(#gProativa)"/>
+                <path class="linha" pathLength="1" d="M0,46 C40,45 90,45 130,44 C150,43 158,54 170,54 C182,54 190,44 214,42 C280,40 350,38 420,36"/>
+                <g class="alerta-tratado"><circle class="anel" cx="170" cy="54" r="11"/><circle cx="170" cy="54" r="5"/><rect x="118" y="70" width="104" height="22" rx="11"/><text x="170" y="85">alerta tratado</text></g>
+                <g class="dias"><text x="30" y="160">Seg</text><text x="90" y="160">Ter</text><text x="150" y="160">Qua</text><text x="210" y="160">Qui</text><text x="270" y="160">Sex</text><text x="330" y="160">Sáb</text><text x="390" y="160">Dom</text></g>
+              </svg>
+            </figure>
+            <dl class="medidores">
+              <div><dt>Tempo parado</dt><dd><span class="barra" style="--n:1"></span><b>baixo</b></dd></div>
+              <div><dt>Custo de emergência</dt><dd><span class="barra" style="--n:1"></span><b>baixo</b></dd></div>
+              <div><dt>Previsibilidade</dt><dd><span class="barra" style="--n:5"></span><b>alta</b></dd></div>
+            </dl>
+            <ul class="painel__itens"><li>Monitoramento 24/7</li><li>Prevenção de falhas</li><li>Crescimento estável</li></ul>
+          </article>
         </div>
         <p class="nota">Gráficos ilustrativos, sem dados reais.</p>
       </div>
@@ -293,6 +336,6 @@
 
   <a class="wa-flutuante" href="https://wa.me/5566999799434?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20de%20TI." target="_blank" rel="noopener" aria-label="Falar com a Hoops no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg></a>
 
-  <script src="js/v2.js?v=4" defer></script>
+  <script src="js/v2.js?v=5" defer></script>
 </body>
 </html>
