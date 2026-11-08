@@ -26,7 +26,7 @@
   const foto = document.querySelector('[data-paralaxe-foto]');
   const cena = document.querySelector('[data-paralaxe]');
   const links = [...document.querySelectorAll('.topo__nav a')];
-  const secoes = links.map((a) => document.querySelector(a.getAttribute('href')));
+  const secoes = links.map((a) => (a.getAttribute('href').startsWith('#') ? document.querySelector(a.getAttribute('href')) : null));
   let pendente = false;
 
   const quadro = () => {

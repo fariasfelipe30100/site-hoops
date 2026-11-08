@@ -385,3 +385,103 @@ svg { flex: none; }
   .clientes__faixa { -webkit-mask-image: none; mask-image: none; }
   .etapas { --p: 1 !important; }
 }
+
+/* ===== Páginas de setor ===== */
+
+/* Primeira tela: texto no azul à esquerda, foto cortada na diagonal à direita */
+.hero--setor { min-height: 88vh; min-height: 88svh; display: flex; align-items: center; padding-bottom: clamp(90px, 10vw, 140px); }
+.hero-setor__grade { position: relative; z-index: 1; }
+.hero--setor .hero__texto { max-width: 620px; }
+.hero--setor h1 { font-size: clamp(38px, 4.6vw, 62px); }
+.hero--setor .selo-topo a { color: inherit; text-decoration: none; }
+.hero--setor .selo-topo a:hover { color: var(--brilho); }
+.hero-setor__foto { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); z-index: 0; }
+.hero-setor__foto img { width: 100%; height: 100%; object-fit: cover; }
+.hero-setor__foto::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 26, 58, 0.75), rgba(2, 26, 58, 0) 45%), linear-gradient(0deg, rgba(1, 14, 34, 0.55), transparent 40%); z-index: 1; }
+.chip--setor { left: auto; right: clamp(20px, 4vw, 60px); bottom: clamp(110px, 14vw, 170px); z-index: 2; }
+.js .hero-setor__foto { animation: entra-cena 1.4s var(--ease) 0.1s both; }
+
+/* Riscos */
+.riscos { position: relative; padding: clamp(110px, 12vw, 160px) 0 clamp(80px, 9vw, 120px); }
+.riscos__grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.risco { position: relative; padding: 28px 24px; border-radius: var(--raio); background: var(--branco); border: 1px solid var(--linha-clara); box-shadow: 0 24px 50px -36px rgba(10, 27, 51, 0.35); overflow: hidden; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+.risco::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--alerta), #FF9A6B); transform: scaleX(0.25); transform-origin: left; transition: transform 0.6s var(--ease); }
+.risco:hover { transform: translateY(-6px); box-shadow: 0 34px 60px -32px rgba(255, 90, 95, 0.35); }
+.risco:hover::before { transform: scaleX(1); }
+.risco__ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 90, 95, 0.1); margin-bottom: 18px; }
+.risco__ico svg { width: 22px; height: 22px; fill: none; stroke: var(--alerta); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.risco h3 { font-size: 19px; margin-bottom: 8px; }
+.risco p { color: var(--tinta-2); font-size: 15px; }
+
+/* O que a Hoops faz: painel do NOC escuro dentro da seção clara */
+.faz { padding: clamp(80px, 9vw, 120px) 0 clamp(120px, 12vw, 170px); }
+.faz__grade { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.noc { position: relative; padding: 22px; border-radius: 26px; color: var(--texto-escuro); background: radial-gradient(500px 260px at 80% 0%, #0B4A8F, transparent 70%), linear-gradient(160deg, var(--marinho-2), var(--noite)); box-shadow: 0 50px 90px -40px rgba(2, 26, 58, 0.8); border: 1px solid rgba(160, 220, 240, 0.18); overflow: hidden; }
+.noc::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 40%; background: linear-gradient(180deg, transparent, rgba(53, 242, 249, 0.07) 50%, transparent); animation: varre 5s linear infinite; pointer-events: none; }
+@keyframes varre { from { transform: translateY(-100%); } to { transform: translateY(260%); } }
+.noc__topo { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid rgba(160, 220, 240, 0.14); font-size: 14px; }
+.noc__topo span { display: flex; gap: 5px; }
+.noc__topo span i { width: 9px; height: 9px; border-radius: 50%; background: rgba(160, 220, 240, 0.3); }
+.noc__topo small { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--suave-escuro); }
+.noc__lista { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 10px; }
+.noc__lista li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(160, 220, 240, 0.1); font-size: 15px; }
+.noc__lista b { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--brilho); text-transform: uppercase; letter-spacing: 0.08em; }
+.noc__lista i { width: 8px; height: 8px; border-radius: 50%; background: var(--brilho); box-shadow: 0 0 10px var(--brilho); animation: respira 1.8s ease-in-out infinite alternate; }
+.noc__lista li:nth-child(2) i { animation-delay: -0.5s; }
+.noc__lista li:nth-child(3) i { animation-delay: -1s; }
+.noc__grafico { width: 100%; height: 90px; display: block; }
+.noc__area { fill: rgba(0, 196, 204, 0.12); }
+.noc__linha { fill: none; stroke: var(--brilho); stroke-width: 2.5; stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 2s var(--ease) 0.3s; filter: drop-shadow(0 0 5px var(--brilho)); }
+.noc.visto .noc__linha, html:not(.js) .noc__linha { stroke-dashoffset: 0; }
+.faz__lista { list-style: none; padding: 0; margin: 30px 0 0; display: grid; gap: 14px; }
+.faz__lista li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: var(--branco); border: 1px solid var(--linha-clara); }
+.faz__lista li:hover { border-color: rgba(0, 163, 171, 0.5); box-shadow: 0 24px 50px -34px rgba(0, 103, 199, 0.5); transform: translateX(6px); }
+.faz__lista .ico { background: linear-gradient(140deg, var(--marinho-2), var(--marinho)); border: 0; }
+.faz__lista h3 { font-size: 18px; margin-bottom: 4px; }
+.faz__lista p { color: var(--tinta-2); font-size: 15px; }
+
+/* Visita técnica (indústria) */
+.visita { padding: clamp(80px, 9vw, 120px) 0 clamp(120px, 12vw, 170px); }
+.visita__grade { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.visita__video { position: relative; margin: 0; isolation: isolate; }
+.visita__video::before { content: ''; position: absolute; inset: -16px 16px 16px -16px; border-radius: 30px; background: linear-gradient(140deg, var(--ciano), var(--azul)); z-index: -1; }
+.visita__video video { display: block; width: 100%; height: auto; aspect-ratio: 720 / 864; border-radius: 26px; background: var(--marinho); object-fit: cover; }
+.visita .cab__lead { margin: 20px 0 22px; max-width: 560px; }
+.visita__tags { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+.visita__tags li { padding: 9px 16px; border-radius: 999px; background: var(--gelo); border: 1px solid var(--linha-clara); font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #0089A0; }
+.visita__frase { font-size: 19px; font-weight: 650; }
+
+/* Cortes extras, dois cartões de setor e chamada sobre branco */
+.corte--gelo path { fill: var(--gelo); }
+.corte--escuro path { fill: var(--marinho); }
+.segmentos { position: relative; }
+.segmentos .corte + .moldura { padding-top: clamp(30px, 4vw, 50px); }
+.setores--dois { grid-template-columns: repeat(2, 1fr); }
+.setores--dois .setor { aspect-ratio: 16 / 11; }
+.cab__link { color: #0089A0; font-weight: 650; text-decoration: none; white-space: nowrap; }
+.cab__link:hover { color: var(--azul); }
+.chamada--branco { background: linear-gradient(180deg, var(--branco) 50%, var(--marinho) 50%); }
+
+@media (max-width: 1020px) {
+  .hero--setor { flex-direction: column; align-items: stretch; padding-top: 0; min-height: 0; }
+  .hero-setor__foto { position: relative; width: 100%; height: clamp(280px, 56vw, 440px); clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%); }
+  .hero-setor__foto::before { background: linear-gradient(0deg, rgba(2, 26, 58, 0.6), transparent 50%), linear-gradient(180deg, rgba(1, 14, 34, 0.7), transparent 35%); }
+  .hero-setor__grade { margin-top: 18px; }
+  .chip--setor { bottom: 20%; right: 16px; }
+  .riscos__grade { grid-template-columns: repeat(2, 1fr); }
+  .faz__grade, .visita__grade { grid-template-columns: 1fr; }
+  .visita__video { max-width: 440px; }
+}
+@media (max-width: 680px) {
+  .riscos__grade, .setores--dois { grid-template-columns: 1fr; }
+  .setores--dois .setor { aspect-ratio: 4 / 3.4; }
+  .noc__lista li { padding: 12px 14px; font-size: 14px; }
+  .hero--setor h1 { font-size: clamp(32px, 9vw, 42px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .noc::after { display: none; }
+}
+
+/* Nas páginas de setor o cabeçalho fica sobre a foto: vidro desde o topo. */
+.pagina-setor .topo__in { background: rgba(2, 20, 46, 0.72); border-color: rgba(160, 220, 240, 0.16); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
+@media (max-width: 1020px) { .hero-setor__foto { margin-top: 76px; } .hero-setor__foto img { object-position: 50% 20%; } }
