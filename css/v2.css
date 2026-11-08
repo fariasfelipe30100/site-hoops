@@ -190,7 +190,10 @@ svg { flex: none; }
 .parceria__foto { position: relative; clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%); overflow: hidden; }
 .parceria__foto img { width: 100%; height: 115%; object-fit: cover; transform: translateY(var(--desloca, 0px)); }
 .parceria__foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 26, 58, 0) 50%, rgba(2, 26, 58, 0.55)), linear-gradient(0deg, rgba(0, 103, 199, 0.25), transparent 50%); }
-.parceria::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; background: linear-gradient(180deg, var(--brilho), var(--azul)); transform: skewX(-9.5deg) translateX(-150%); transform-origin: top; box-shadow: 0 0 24px var(--ciano); opacity: 0.9; }
+/* Linha na borda diagonal da foto: mesma geometria do recorte (100% no topo, 84% embaixo) */
+.parceria::before, .parceria::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 50%; z-index: 1; pointer-events: none; }
+.parceria::after { background: linear-gradient(180deg, var(--brilho), var(--azul)); clip-path: polygon(calc(100% - 3px) 0, calc(100% + 3px) 0, calc(84% + 3px) 100%, calc(84% - 3px) 100%); }
+.parceria::before { background: linear-gradient(180deg, rgba(53, 242, 249, 0.35), rgba(0, 103, 199, 0.3)); clip-path: polygon(calc(100% - 14px) 0, calc(100% + 14px) 0, calc(84% + 14px) 100%, calc(84% - 14px) 100%); filter: blur(0); opacity: 0.55; }
 .parceria__texto { padding: clamp(60px, 8vw, 110px) var(--gut) clamp(60px, 8vw, 110px) clamp(24px, 4vw, 60px); align-self: center; max-width: 620px; }
 .pilares { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 14px; counter-reset: pilar; }
 .pilares li { position: relative; counter-increment: pilar; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 20px 52px 20px 22px; border-radius: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.015)); border: 1px solid rgba(160, 220, 240, 0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.8); overflow: hidden; transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s, background 0.45s; }
@@ -307,7 +310,7 @@ svg { flex: none; }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .parceria { grid-template-columns: 1fr; }
   .parceria__foto { height: 340px; clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%); }
-  .parceria::after { display: none; }
+  .parceria::before, .parceria::after { display: none; }
   .parceria__texto { max-width: none; padding-top: 40px; }
   .setores { grid-template-columns: 1fr 1fr; }
   .setores .setor:last-child { grid-column: span 2; aspect-ratio: 16 / 9; }
