@@ -485,3 +485,29 @@ svg { flex: none; }
 /* Nas páginas de setor o cabeçalho fica sobre a foto: vidro desde o topo. */
 .pagina-setor .topo__in { background: rgba(2, 20, 46, 0.72); border-color: rgba(160, 220, 240, 0.16); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); }
 @media (max-width: 1020px) { .hero-setor__foto { margin-top: 76px; } .hero-setor__foto img { object-position: 50% 20%; } }
+
+/* Neblina na passagem da seção da parceria (foto e azul) para o custo de parar (gelo). */
+.parceria__texto { position: relative; z-index: 3; }
+.parceria__neblina { position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(140px, 16vw, 260px); z-index: 2; pointer-events: none; overflow: hidden; }
+.parceria__neblina::before,
+.parceria__neblina::after { content: ''; position: absolute; inset: 0; }
+.parceria__neblina::before {
+  background: linear-gradient(180deg, rgba(241, 246, 251, 0) 0%, rgba(241, 246, 251, 0.35) 45%, rgba(241, 246, 251, 0.85) 78%, var(--gelo) 100%);
+}
+.parceria__neblina::after {
+  left: -20%; right: -20%;
+  background:
+    radial-gradient(ellipse 22% 55% at 12% 80%, rgba(241, 246, 251, 0.75), transparent 70%),
+    radial-gradient(ellipse 26% 60% at 38% 92%, rgba(241, 246, 251, 0.8), transparent 70%),
+    radial-gradient(ellipse 20% 50% at 62% 78%, rgba(220, 238, 250, 0.7), transparent 70%),
+    radial-gradient(ellipse 28% 60% at 86% 90%, rgba(241, 246, 251, 0.8), transparent 70%),
+    radial-gradient(ellipse 18% 40% at 50% 60%, rgba(180, 230, 245, 0.25), transparent 70%);
+  filter: blur(14px);
+  animation: neblina 18s ease-in-out infinite alternate;
+}
+@keyframes neblina { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+@media (prefers-reduced-motion: reduce) { .parceria__neblina::after { animation: none; } }
+/* A emenda cai em meio pixel: o gelo do custo cobre 3 px para cima, e o texto termina antes da neblina. */
+.custo { position: relative; z-index: 3; box-shadow: 0 -3px 0 var(--gelo); }
+.parceria__texto { padding-bottom: clamp(140px, 15vw, 230px); }
+@media (max-width: 1020px) { .parceria__texto { padding-bottom: clamp(120px, 30vw, 170px); } }
