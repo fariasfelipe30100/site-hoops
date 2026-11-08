@@ -192,10 +192,17 @@ svg { flex: none; }
 .parceria__foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 26, 58, 0) 50%, rgba(2, 26, 58, 0.55)), linear-gradient(0deg, rgba(0, 103, 199, 0.25), transparent 50%); }
 .parceria::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; background: linear-gradient(180deg, var(--brilho), var(--azul)); transform: skewX(-9.5deg) translateX(-150%); transform-origin: top; box-shadow: 0 0 24px var(--ciano); opacity: 0.9; }
 .parceria__texto { padding: clamp(60px, 8vw, 110px) var(--gut) clamp(60px, 8vw, 110px) clamp(24px, 4vw, 60px); align-self: center; max-width: 620px; }
-.pilares { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 22px; }
-.pilares li { display: flex; gap: 18px; align-items: flex-start; }
-.pilares h3 { font-size: 19px; margin-bottom: 4px; }
-.pilares p { color: var(--suave-escuro); font-size: 15.5px; }
+.pilares { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 14px; counter-reset: pilar; }
+.pilares li { position: relative; counter-increment: pilar; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 20px 52px 20px 22px; border-radius: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.015)); border: 1px solid rgba(160, 220, 240, 0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.8); overflow: hidden; transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s, background 0.45s; }
+.pilares li::before { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 3px; border-radius: 0 3px 3px 0; background: linear-gradient(180deg, var(--brilho), var(--azul)); box-shadow: 0 0 12px var(--ciano); transform: scaleY(0.4); transition: transform 0.45s var(--ease); }
+.pilares li::after { content: '0' counter(pilar); position: absolute; right: 20px; top: 16px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: rgba(53, 242, 249, 0.45); }
+.pilares li:hover { transform: translateX(6px); border-color: rgba(53, 242, 249, 0.42); background: linear-gradient(135deg, rgba(53, 242, 249, 0.1), rgba(255, 255, 255, 0.02)); box-shadow: 0 24px 50px -28px rgba(0, 196, 204, 0.45); }
+.pilares li:hover::before { transform: scaleY(1); }
+.pilares .ico { width: 54px; height: 54px; border-radius: 16px; border: 0; background: linear-gradient(140deg, var(--ciano), var(--azul)); box-shadow: 0 10px 24px -8px rgba(0, 196, 204, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.pilares .ico svg { stroke: var(--branco); width: 24px; height: 24px; }
+.pilares h3 { font-size: 18.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
+.pilares p { color: var(--suave-escuro); font-size: 15px; line-height: 1.5; }
+@media (max-width: 680px) { .pilares li { gap: 14px; padding: 18px 44px 18px 18px; } .pilares .ico { width: 46px; height: 46px; border-radius: 14px; } .pilares li::after { right: 16px; top: 14px; } }
 
 /* 5. Custo de parar */
 .custo { padding: clamp(80px, 9vw, 120px) 0; }
@@ -469,7 +476,7 @@ svg { flex: none; }
 .parceria__neblina::before,
 .parceria__neblina::after { content: ''; position: absolute; inset: 0; }
 .parceria__neblina::before {
-  background: linear-gradient(180deg, rgba(241, 246, 251, 0) 0%, rgba(241, 246, 251, 0.35) 45%, rgba(241, 246, 251, 0.85) 78%, var(--gelo) 100%);
+  background: linear-gradient(180deg, rgba(120, 190, 235, 0) 0%, rgba(120, 190, 235, 0.16) 30%, rgba(205, 230, 248, 0.62) 64%, rgba(236, 244, 251, 0.93) 86%, var(--gelo) 100%);
 }
 .parceria__neblina::after {
   left: -20%; right: -20%;
