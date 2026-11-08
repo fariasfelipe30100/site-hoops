@@ -1719,3 +1719,50 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .palco--3d .s3d__item:not(.ativo) { opacity: 1; }
 }
+
+/* Clientes: faixa de logos logo abaixo da primeira tela. Os logos são versões brancas
+   (referencias/logos-brancos.py); --h equilibra o tamanho visual entre logos largos e quadrados. */
+
+.clientes {
+  padding-block: clamp(36px, 5vw, 56px) clamp(30px, 4vw, 48px);
+  background: linear-gradient(180deg, var(--deep), var(--base));
+  border-top: 1px solid var(--line);
+}
+.clientes__cab { text-align: center; margin-bottom: clamp(20px, 3vw, 32px); }
+.clientes__cab h2 { margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.clientes__faixa {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.clientes__trilho { display: flex; width: max-content; animation: corre 48s linear infinite; }
+.clientes__faixa:hover .clientes__trilho { animation-play-state: paused; }
+.clientes__lista {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 5vw, 72px);
+  margin: 0;
+  padding: 0 clamp(20px, 2.5vw, 36px);
+  list-style: none;
+}
+.clientes__lista li { flex: none; display: flex; align-items: center; height: 64px; }
+.clientes__lista img {
+  display: block;
+  width: auto;
+  height: var(--h, 36px);
+  max-width: 230px;
+  object-fit: contain;
+  opacity: 0.78;
+  transition: opacity 0.3s var(--ease);
+}
+.clientes__lista li:hover img { opacity: 1; }
+@media (max-width: 600px) {
+  .clientes__lista li { height: 44px; }
+  .clientes__lista img { height: calc(var(--h, 36px) * 0.78); max-width: 150px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .clientes__faixa { -webkit-mask-image: none; mask-image: none; }
+  .clientes__trilho { animation: none; width: auto; }
+  .clientes__lista { flex-wrap: wrap; justify-content: center; row-gap: 24px; }
+  .clientes__lista[aria-hidden="true"] { display: none; }
+}
