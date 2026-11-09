@@ -34,7 +34,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adju
 body { margin: 0; font-family: var(--fonte); font-size: 17px; line-height: 1.55; color: var(--tinta); background: var(--noite); overflow-x: clip; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: -0.025em; }
+h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance; }
 p { margin: 0; }
 svg { flex: none; }
 
@@ -196,10 +196,10 @@ svg { flex: none; }
 .parceria__texto { padding: clamp(60px, 8vw, 110px) var(--gut) clamp(60px, 8vw, 110px) clamp(24px, 4vw, 60px); align-self: center; max-width: 620px; }
 .pilares { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 14px; counter-reset: pilar; }
 .pilares li { position: relative; counter-increment: pilar; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 20px 52px 20px 22px; border-radius: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.015)); border: 1px solid rgba(160, 220, 240, 0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.8); overflow: hidden; transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s, background 0.45s; }
-.pilares li::before { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 3px; border-radius: 0 3px 3px 0; background: linear-gradient(180deg, var(--brilho), var(--azul)); box-shadow: 0 0 12px var(--ciano); transform: scaleY(0.4); transition: transform 0.45s var(--ease); }
+.pilares li::before { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 3px; border-radius: 0 3px 3px 0; background: linear-gradient(180deg, var(--brilho), var(--azul)); box-shadow: 0 0 12px var(--ciano); transform: scaleY(0); opacity: 0; transition: transform 0.45s var(--ease), opacity 0.3s; }
 .pilares li::after { content: '0' counter(pilar); position: absolute; right: 20px; top: 16px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: rgba(53, 242, 249, 0.45); }
 .pilares li:hover { transform: translateX(6px); border-color: rgba(53, 242, 249, 0.42); background: linear-gradient(135deg, rgba(53, 242, 249, 0.1), rgba(255, 255, 255, 0.02)); box-shadow: 0 24px 50px -28px rgba(0, 196, 204, 0.45); }
-.pilares li:hover::before { transform: scaleY(1); }
+.pilares li:hover::before { transform: scaleY(1); opacity: 1; }
 .pilares .ico { width: 54px; height: 54px; border-radius: 16px; border: 0; background: linear-gradient(140deg, var(--ciano), var(--azul)); box-shadow: 0 10px 24px -8px rgba(0, 196, 204, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
 .pilares .ico svg { stroke: var(--branco); width: 24px; height: 24px; }
 .pilares h3 { font-size: 18.5px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
@@ -250,7 +250,8 @@ svg { flex: none; }
 /* 10. Chamada final */
 .chamada { background: linear-gradient(180deg, var(--gelo) 50%, var(--marinho) 50%); padding: 0 0 clamp(60px, 7vw, 90px); }
 .chamada__caixa { position: relative; overflow: hidden; isolation: isolate; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: 'ico tit btn' 'ico txt btn'; align-items: center; column-gap: clamp(20px, 3vw, 40px); row-gap: 6px; padding: clamp(32px, 4vw, 48px) clamp(28px, 4vw, 56px); border-radius: 28px; background: linear-gradient(110deg, #00A3AB, var(--azul) 55%, #123A9C); color: var(--branco); box-shadow: 0 40px 80px -40px rgba(0, 103, 199, 0.8); }
-.chamada__brilho { position: absolute; inset: -50%; z-index: -1; background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.22), transparent 30%); animation: gira 9s linear infinite; }
+.chamada__brilho { position: absolute; top: 0; bottom: 0; left: 0; width: 45%; z-index: -1; pointer-events: none; background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.16) 50%, transparent 100%); transform: translateX(-120%); animation: varre 7s ease-in-out infinite; }
+@keyframes varre { 0% { transform: translateX(-120%); } 55%, 100% { transform: translateX(260%); } }
 @keyframes gira { to { transform: rotate(1turn); } }
 .chamada__ico { grid-area: ico; display: grid; place-items: center; width: 74px; height: 74px; border-radius: 20px; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.35); backdrop-filter: blur(8px); }
 .chamada__ico svg { width: 34px; height: 34px; stroke: var(--branco); }
@@ -657,3 +658,11 @@ main > section + section, main + .rodape { margin-top: -1px; }
   .parceria__foto { height: auto; aspect-ratio: 1080 / 640; }
   .parceria__foto img { top: 0; height: 100%; object-position: 50% 0%; transform: none; }
 }
+
+/* Revisão geral: perguntas no celular sem caixa escura só com o botão */
+@media (max-width: 900px) {
+  .faq__painel { padding: 0; background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+  .faq__painel::before { display: none; }
+  .faq__painel .btn { background: linear-gradient(120deg, var(--brilho), var(--ciano)); color: var(--noite); box-shadow: 0 16px 30px -16px rgba(0, 163, 171, 0.8); }
+}
+@media (max-width: 680px) { .rodape { padding-bottom: 96px; } }
