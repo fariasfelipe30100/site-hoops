@@ -191,9 +191,8 @@ svg { flex: none; }
 .parceria__foto img { width: 100%; height: 115%; object-fit: cover; transform: translateY(var(--desloca, 0px)); }
 .parceria__foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2, 26, 58, 0) 50%, rgba(2, 26, 58, 0.55)), linear-gradient(0deg, rgba(0, 103, 199, 0.25), transparent 50%); }
 /* Linha na borda diagonal da foto: mesma geometria do recorte (100% no topo, 84% embaixo) */
-.parceria::before, .parceria::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 50%; z-index: 1; pointer-events: none; }
+.parceria::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 50%; z-index: 1; pointer-events: none; }
 .parceria::after { background: linear-gradient(180deg, var(--brilho), var(--azul)); clip-path: polygon(calc(100% - 3px) 0, calc(100% + 3px) 0, calc(84% + 3px) 100%, calc(84% - 3px) 100%); }
-.parceria::before { background: linear-gradient(180deg, rgba(53, 242, 249, 0.35), rgba(0, 103, 199, 0.3)); clip-path: polygon(calc(100% - 14px) 0, calc(100% + 14px) 0, calc(84% + 14px) 100%, calc(84% - 14px) 100%); filter: blur(0); opacity: 0.55; }
 .parceria__texto { padding: clamp(60px, 8vw, 110px) var(--gut) clamp(60px, 8vw, 110px) clamp(24px, 4vw, 60px); align-self: center; max-width: 620px; }
 .pilares { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 14px; counter-reset: pilar; }
 .pilares li { position: relative; counter-increment: pilar; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 20px 52px 20px 22px; border-radius: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.015)); border: 1px solid rgba(160, 220, 240, 0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.8); overflow: hidden; transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s, background 0.45s; }
@@ -310,7 +309,7 @@ svg { flex: none; }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .parceria { grid-template-columns: 1fr; }
   .parceria__foto { height: 340px; clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%); }
-  .parceria::before, .parceria::after { display: none; }
+  .parceria::after { display: none; }
   .parceria__texto { max-width: none; padding-top: 40px; }
   .setores { grid-template-columns: 1fr 1fr; }
   .setores .setor:last-child { grid-column: span 2; aspect-ratio: 16 / 9; }
@@ -644,11 +643,17 @@ html:not(.js) .faq__painel-in { display: none; }
 /* Emendas em meio pixel deixavam ver o fundo escuro da página entre seções: cada seção sobe 1 px. */
 main > section + section, main + .rodape { margin-top: -1px; }
 /* Revisão de detalhes */
-.parceria__foto img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; }
+.parceria__foto img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 0%; transform: none; }
 .equipe__foto img { width: 100%; height: auto; aspect-ratio: 1.95; object-fit: cover; object-position: 50% 0%; }
 @media (max-width: 1020px) { .equipe__foto { margin-right: 18px; } }
 @media (min-width: 901px) { .faq__item.ativo { transform: none; } }
 @media (max-width: 600px) {
   .noc__topo { flex-wrap: wrap; row-gap: 6px; }
   .noc__topo small { margin-left: 0; width: 100%; order: 3; }
+}
+
+/* Celular e tablet: foto inteira no quadro, sem cortar a cabeça (sem paralaxe) */
+@media (max-width: 1020px) {
+  .parceria__foto { height: auto; aspect-ratio: 1080 / 640; }
+  .parceria__foto img { top: 0; height: 100%; object-position: 50% 0%; transform: none; }
 }
