@@ -2,6 +2,7 @@
 // linha do tempo que acende, paralaxe leve e botão do WhatsApp depois da primeira tela.
 (() => {
   const reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-ano]').forEach((el) => (el.textContent = new Date().getFullYear()));
 
   // Entradas escalonadas: irmãos .rv ganham atraso crescente.
   document.querySelectorAll('.rv').forEach((el) => {

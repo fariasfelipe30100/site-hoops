@@ -712,3 +712,6 @@ main > section + section, main + .rodape { margin-top: -1px; }
 .clientes__lista li:hover img:not(.cor) { opacity: 0; transform: none; }
 .clientes__lista li:hover img.cor { opacity: 1; transform: scale(1); }
 .clientes__faixa { padding: 18px 0; }
+
+/* Página 404: sem foto, o texto desce abaixo do cabeçalho no celular */
+@media (max-width: 1020px) { .hero--404 { padding-top: 130px; min-height: 70svh; } }
