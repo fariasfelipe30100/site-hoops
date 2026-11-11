@@ -61,6 +61,19 @@
 
   // Linha da comparação desenha quando aparece.
   const duelo = document.querySelector('.duelo');
+  // Números contam de 0 até o valor quando aparecem na tela.
+  const contas = document.querySelectorAll('[data-conta]');
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (contas.length && !calmo) {
+    const oc = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      oc.unobserve(e.target);
+      const el = e.target, fim = +el.dataset.conta, t0 = performance.now();
+      const passo = (t) => { const p = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(fim * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(passo); };
+      el.textContent = '0'; requestAnimationFrame(passo);
+    }), { threshold: 0.6 });
+    contas.forEach((c) => oc.observe(c));
+  }
   if (duelo) new IntersectionObserver(([e], o) => { if (e.isIntersecting) { duelo.classList.add('visto'); o.disconnect(); } }, { threshold: 0.3 }).observe(duelo);
 
   // Luz que segue o ponteiro nos cards.
