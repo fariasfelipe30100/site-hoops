@@ -819,3 +819,18 @@ main > section + section, main + .rodape { margin-top: -1px; }
 /* Topo dos setores: todo o fundo (brilho azul incluído) escurece até o azul da curva, sem degrau */
 .hero--setor::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 32%; z-index: 0; pointer-events: none;
   background: linear-gradient(0deg, var(--marinho) 0%, rgba(2, 26, 58, 0.9) 25%, rgba(2, 26, 58, 0) 100%); }
+
+/* Números que nos orgulham: 7 números (dados da Hoops, 18/11) */
+.numeros__cab { margin: clamp(48px, 6vw, 80px) auto 0; text-align: center; }
+.numeros__cab h3 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.02em; color: var(--branco); }
+.numeros__cab p { margin-top: 10px; font-size: clamp(16px, 1.3vw, 19px); color: var(--suave-escuro); }
+.numeros--7 { max-width: 1180px; margin-top: clamp(36px, 4.5vw, 56px); display: flex; flex-wrap: wrap; justify-content: center; row-gap: clamp(36px, 4vw, 52px); column-gap: 0; }
+.numeros--7 li { flex: 0 0 25%; padding: 0 10px; }
+.numeros--7 strong { font-size: clamp(42px, 4.2vw, 60px); }
+.numeros--7 li > span:last-child { font-size: 16.5px; max-width: 210px; }
+@media (min-width: 1500px) { .numeros--7 { max-width: none; } .numeros--7 li { flex-basis: calc(100% / 7); } .numeros--7 strong { font-size: clamp(44px, 3.2vw, 62px); } }
+@media (max-width: 760px) { .numeros--7 { column-gap: 0; row-gap: 34px; } .numeros--7 li { flex-basis: 50%; } .numeros--7 strong { font-size: 40px; } .numeros--7 li > span:last-child { font-size: 15px; } }
+/* Mapa das soluções: com número par de frentes, nenhuma ocupa a linha inteira */
+.mapa li:last-child:nth-child(even) { grid-column: auto; }
+/* Foto da parceria: sem véu azul por cima do uniforme */
+.parceria__foto::after { background: linear-gradient(90deg, rgba(2, 26, 58, 0) 55%, rgba(2, 26, 58, 0.5)); }
