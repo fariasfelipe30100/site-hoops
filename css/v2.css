@@ -815,3 +815,7 @@ main > section + section, main + .rodape { margin-top: -1px; }
   .hero-setor__foto::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 38%; z-index: 1; pointer-events: none;
     background: linear-gradient(0deg, var(--marinho) 0%, rgba(2, 26, 58, 0.85) 22%, rgba(2, 26, 58, 0) 100%); }
 }
+
+/* Topo dos setores: todo o fundo (brilho azul incluído) escurece até o azul da curva, sem degrau */
+.hero--setor::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 32%; z-index: 0; pointer-events: none;
+  background: linear-gradient(0deg, var(--marinho) 0%, rgba(2, 26, 58, 0.9) 25%, rgba(2, 26, 58, 0) 100%); }
