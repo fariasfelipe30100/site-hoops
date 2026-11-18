@@ -809,3 +809,9 @@ main > section + section, main + .rodape { margin-top: -1px; }
   .card h3, .frente h3 { font-size: 24px; }
   .card p, .frente p, .faz__lista p, .risco p { font-size: 17px; }
 }
+
+/* Topo dos setores: a foto se dissolve no azul da curva de baixo, sem linha reta cortando */
+@media (min-width: 1021px) {
+  .hero-setor__foto::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 38%; z-index: 1; pointer-events: none;
+    background: linear-gradient(0deg, var(--marinho) 0%, rgba(2, 26, 58, 0.85) 22%, rgba(2, 26, 58, 0) 100%); }
+}
