@@ -834,3 +834,14 @@ main > section + section, main + .rodape { margin-top: -1px; }
 .mapa li:last-child:nth-child(even) { grid-column: auto; }
 /* Foto da parceria: sem véu azul por cima do uniforme */
 .parceria__foto::after { background: linear-gradient(90deg, rgba(2, 26, 58, 0) 55%, rgba(2, 26, 58, 0.5)); }
+
+/* Topo da home: faixa de benefícios inteira, com respiro antes da seção de clientes (19/11) */
+.hero:not(.hero--setor) .beneficios { top: 0; margin-bottom: clamp(40px, 6vh, 64px); }
+.hero:not(.hero--setor)::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; z-index: -1; pointer-events: none;
+  background: linear-gradient(0deg, var(--marinho) 0%, rgba(2, 26, 58, 0.85) 30%, rgba(2, 26, 58, 0) 100%); }
+/* Foto nova do Guilherme (vertical): rosto no centro do quadro */
+.parceria__foto img { object-position: 50% 6%; }
+@media (max-width: 1020px) {
+  .parceria__foto { aspect-ratio: 4 / 3.6; }
+  .parceria__foto img { object-position: 50% 6%; }
+}
